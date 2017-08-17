@@ -1,0 +1,24 @@
+music_directory				"{{ music_directory }}"\n
+playlist_directory		"/home/{{ username }}/mpd/playlists"\n
+db_file			  				"/home/{{username}}/mpd/tag_cache"\n
+log_file							"/home/{{username}}/mpd/mpd.log"\n
+pid_file							"/home/{{username}}/mpd/pid"\n
+state_file						"/home/{{username}}/mpd/state"\n
+sticker_file  				"/home/{{username}}//mpd/sticker.sql"\n
+user									"{{username}}"\n
+bind_to_address				"localhost"\n
+
+input {\n
+        plugin "curl"\n
+}\n
+audio_output {\n
+	type		"alsa"\n
+	name		"My ALSA Device"\n
+	device		"hw:0,0"	# optional\n
+	format		"44100:16:2"	# optional\n
+	mixer_device	"default"	# optional\n
+	mixer_control	"PCM"		# optional\n
+	mixer_index	"0"		# optional\n
+}\n
+filesystem_charset		"UTF-8"\n
+id3v1_encoding			"UTF-8"\n

@@ -1,0 +1,10 @@
+{
+  "name": "mpd",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "execa": "^0.8.0",
+    "handlebars": "^4.0.10"
+  }
+}
