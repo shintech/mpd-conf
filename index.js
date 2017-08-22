@@ -13,7 +13,7 @@ if (data.music_directory !== undefined && data.username !== undefined) {
 
     var template = Handlebars.compile(src)
     var output = template(data)
-    execa.shell('echo $OUTPUT | sudo tee /etc/mpd/mpd.conf', {
+    execa.shell('echo $OUTPUT | sudo tee /etc/mpd.conf', {
       env: {
         OUTPUT: output
       }
