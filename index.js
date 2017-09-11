@@ -4,7 +4,8 @@ const execa = require('execa')
 
 var data = {
   music_directory: process.env['MUSIC_DIR'],
-  username: process.env['MPD_USER']
+  username: process.env['MPD_USER'],
+  port: process.env['PORT']
 }
 
 if (data.music_directory !== undefined && data.username !== undefined) {
