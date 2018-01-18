@@ -4,36 +4,37 @@ db_file			  				"/home/{{username}}/mpd/tag_cache"\n
 log_file							"/home/{{username}}/mpd/mpd.log"\n
 pid_file							"/home/{{username}}/mpd/pid"\n
 state_file						"/home/{{username}}/mpd/state"\n
-sticker_file  				"/home/{{username}}//mpd/sticker.sql"\n
+sticker_file  				"/home/{{username}}/mpd/sticker.sql"\n
 user									"{{username}}"\n
 bind_to_address				"localhost"\n
-
-input {\n
-        plugin "curl"\n
-}\n
-
-audio_output {\n
-	type		"alsa"\n
-	name		"My ALSA Device"\n
-	device		"hw:0,0"	# optional\n
-	format		"44100:16:2"	# optional\n
-	mixer_device	"default"	# optional\n
-	mixer_control	"PCM"		# optional\n
-	mixer_index	"0"		# optional\n
-}\n
-
 \n
-audio_output {
-	type		"httpd"
-	name		"HTTPStream"
-	encoder		"lame"		# optional, vorbis or lame
-	port		"{{ port }}"
-#	quality		"5.0"			# do not define if bitrate is defined
-	bitrate		"128"			# do not define if quality is defined
-	format		"44100:16:1"
-	always_on	"yes"
-	tags		"yes"
+input {\n
+\tplugin "curl"\n
 }\n
-
+\n
+audio_output {\n
+\ttype		"alsa"\n
+\tname		"My ALSA Device"\n
+\tdevice		"hw:0,0"	# optional\n
+\tformat		"44100:16:2"	# optional\n
+\tmixer_device	"default"	# optional\n
+\tmixer_control	"PCM"		# optional\n
+\tmixer_index	"0"		# optional\n
+}\n
+\n
+\n
+audio_output {\n
+\ttype		"httpd"\n
+\tname		"HTTPStream"\n
+\tencoder		"lame"		# optional, vorbis or lame\n
+\tport		"{{ port }}"\n
+#\tquality		"5.0"			# do not define if bitrate is defined\n
+\tbitrate		"128"			# do not define if quality is defined\n
+\tformat		"44100:16:1"\n
+\talways_on	"yes"\n
+\ttags		"yes"\n
+}\n
+\n
 filesystem_charset		"UTF-8"\n
 id3v1_encoding			"UTF-8"\n
+\n
